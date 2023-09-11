@@ -19,8 +19,9 @@ TEMPLATE = lib
 
 win32: {
     LIBS += -lpsapi -limagehlp -lversion
+    LIBS += -LD:/software/sqlite -lsqlite3
     DEFINES += "SQLITE_API=\"__declspec(dllexport)\""
-
+    INCLUDEPATH += D:/software/QT/Tools/mingw730_64/opt/include/readline
     !debug: {
         THE_FILE = $$PWD/qt.conf
         THE_DEST = $${DESTDIR}
@@ -31,6 +32,7 @@ win32: {
 }
 
 linux: {
+    LIBS += -lsqlite3
     DEFINES += SYS_PLUGINS_DIR=$$LIBDIR/sqlitestudio
     portable: {
         DESTDIR = $$DESTDIR/lib
@@ -46,7 +48,7 @@ macx: {
     LIBS += -L/usr/local/lib
 }
 
-LIBS += -lsqlite3
+
 
 DEFINES += CORESQLITESTUDIO_LIBRARY
 
