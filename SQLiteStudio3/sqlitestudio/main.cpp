@@ -117,6 +117,8 @@ bool shouldAllowMultipleSessions()
     return allowMultipleSessionsValue.isValid() && allowMultipleSessionsValue.toBool();
 }
 
+
+
 int main(int argc, char *argv[])
 {
     initHighDpi();
